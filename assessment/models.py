@@ -21,7 +21,6 @@ class Candidate(models.Model):
         if not candidate_exists:
             Session.objects.create(candidate=self)
 
-
     def __str__(self):
         return self.first_name + self.last_name
 
@@ -45,6 +44,7 @@ class QuestionAnswer(models.Model):
     text = models.TextField(blank=True)
     image = models.ImageField(blank=True)
     correct = models.BooleanField(default=False)
+
 
 class QuestionSessionResult(models.Model):
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
